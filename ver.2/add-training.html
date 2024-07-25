@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トレーニングを追加</title>
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #ffffff;
+            --accent-color: #333333;
+            --font-family: 'Arial', sans-serif;
+            --font-size: 16px;
+        }
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .back-button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: var(--font-size);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .back-button:hover {
+            background-color: #cc0000;
+        }
+        .category {
+            margin-top: 20px;
+        }
+        .exercise-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .exercise-item {
+            background-color: #ffdddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .exercise-item:hover {
+            background-color: #ffcccc;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="history.back()">戻る</button>
+    <div class="container">
+        <h1>トレーニングを追加</h1>
+        <div class="category">
+            <h2>胸</h2>
+            <ul class="exercise-list">
+                <li class="exercise-item" onclick="navigateToAddSet('ベンチプレス')">ベンチプレス</li>
+                <li class="exercise-item" onclick="navigateToAddSet('ダンベルフライ')">ダンベルフライ</li>
+                <li class="exercise-item" onclick="navigateToAddSet('チェストプレス')">チェストプレス</li>
+                <li class="exercise-item" onclick="navigateToAddSet('プッシュアップ')">プッシュアップ</li>
+            </ul>
+        </div>
+        <!-- 他のカテゴリも同様に追加 -->
+        <div class="category">
+            <h2>背中</h2>
+            <ul class="exercise-list">
+                <li class="exercise-item" onclick="navigateToAddSet('ラットプルダウン')">ラットプルダウン</li>
+                <li class="exercise-item" onclick="navigateToAddSet('デッドリフト')">デッドリフト</li>
+                <li class="exercise-item" onclick="navigateToAddSet('ベントオーバーロウ')">ベントオーバーロウ</li>
+                <li class="exercise-item" onclick="navigateToAddSet('プルアップ')">プルアップ</li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>肩</h2>
+            <ul class="exercise-list">
+                <li class="exercise-item" onclick="navigateToAddSet('ショルダープレス')">ショルダープレス</li>
+                <li class="exercise-item" onclick="navigateToAddSet('サイドレイズ')">サイドレイズ</li>
+                <li class="exercise-item" onclick="navigateToAddSet('リアデルトレイズ')">リアデルトレイズ</li>
+                <li class="exercise-item" onclick="navigateToAddSet('フロントレイズ')">フロントレイズ</li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>腕</h2>
+            <ul class="exercise-list">
+                <li class="exercise-item" onclick="navigateToAddSet('バーベルカール')">バーベルカール</li>
+                <li class="exercise-item" onclick="navigateToAddSet('ダンベルカール')">ダンベルカール</li>
+                <li class="exercise-item" onclick="navigateToAddSet('トライセプスエクステンション')">トライセプスエクステンション</li>
+                <li class="exercise-item" onclick="navigateToAddSet('トライセプスプレスダウン')">トライセプスプレスダウン</li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>腹</h2>
+            <ul class="exercise-list">
+                <li class="exercise-item" onclick="navigateToAddSet('シットアップ')">シットアップ</li>
+                <li class="exercise-item" onclick="navigateToAddSet('レッグレイズ')">レッグレイズ</li>
+                <li class="exercise-item" onclick="navigateToAddSet('プランク')">プランク</li>
+                <li class="exercise-item" onclick="navigateToAddSet('クランチ')">クランチ</li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>脚</h2>
+            <ul class="exercise-list">
+                <li class="exercise-item" onclick="navigateToAddSet('スクワット')">スクワット</li>
+                <li class="exercise-item" onclick="navigateToAddSet('レッグプレス')">レッグプレス</li>
+                <li class="exercise-item" onclick="navigateToAddSet('レッグエクステンション')">レッグエクステンション</li>
+                <li class="exercise-item" onclick="navigateToAddSet('カーフレイズ')">カーフレイズ</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const date = urlParams.get('date');
+
+        function navigateToAddSet(exercise) {
+            const url = `add-set.html?date=${date}&exercise=${exercise}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
